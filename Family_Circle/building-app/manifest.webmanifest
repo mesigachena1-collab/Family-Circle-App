@@ -1,0 +1,37 @@
+{
+  "name": "Family Circle Care",
+  "short_name": "Family Circle",
+  "description": "An elder-friendly care app for family connection, medication, routine, prayer, and memory practice.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f3ee",
+  "theme_color": "#21352f",
+  "orientation": "portrait-primary",
+  "categories": ["health", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Medication Reminders",
+      "short_name": "Reminders",
+      "url": "./index.html#reminders"
+    },
+    {
+      "name": "Call Family",
+      "short_name": "Family",
+      "url": "./index.html#family"
+    },
+    {
+      "name": "Memory Games",
+      "short_name": "Games",
+      "url": "./index.html#games"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Family Circle Care icon">
+  <rect width="512" height="512" rx="96" fill="#21352f"/>
+  <circle cx="256" cy="222" r="144" fill="#f4cf81"/>
+  <circle cx="206" cy="202" r="48" fill="#fff8e8"/>
+  <circle cx="306" cy="202" r="48" fill="#fff8e8"/>
+  <path d="M143 324c34-55 80-83 137-83s103 28 137 83" fill="none" stroke="#fff8e8" stroke-width="38" stroke-linecap="round"/>
+  <path d="M166 374h180c28 0 50-22 50-50v-14c0-13-5-25-14-34l-22-22" fill="none" stroke="#2f6f5e" stroke-width="32" stroke-linecap="round"/>
+  <path d="M254 150v102m-51-51h102" stroke="#21352f" stroke-width="30" stroke-linecap="round"/>
+</svg>

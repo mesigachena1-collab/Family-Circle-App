@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Family Circle Care</title>
+    <meta name="description" content="An elder-friendly care app for family connection, medication, routine, prayer, and memory practice." />
+    <meta name="theme-color" content="#21352f" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-panel" aria-label="Main navigation">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">FC</div>
+          <div>
+            <h1>Family Circle</h1>
+            <p>Care, company, and gentle reminders.</p>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="dashboard" type="button">
+            <span aria-hidden="true">⌂</span>
+            Today
+          </button>
+          <button class="nav-item" data-view="family" type="button">
+            <span aria-hidden="true">☎</span>
+            Family
+          </button>
+          <button class="nav-item" data-view="reminders" type="button">
+            <span aria-hidden="true">◷</span>
+            Reminders
+          </button>
+          <button class="nav-item" data-view="games" type="button">
+            <span aria-hidden="true">◇</span>
+            Games
+          </button>
+          <button class="nav-item" data-view="prayer" type="button">
+            <span aria-hidden="true">✦</span>
+            Prayer
+          </button>
+        </nav>
+
+        <div class="care-note">
+          <strong>Care partner view</strong>
+          <p>Family can review routine, calls, medication, and memory practice together.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="topbar" aria-label="Daily summary">
+          <div>
+            <p class="eyebrow" id="todayLabel">Today</p>
+            <h2>Good morning, Aster</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="secondary-action install-action" id="installButton" type="button" hidden>
+              <span aria-hidden="true">▣</span>
+              Install app
+            </button>
+            <button class="primary-action" id="checkInButton" type="button">
+              <span aria-hidden="true">✓</span>
+              I am okay
+            </button>
+          </div>
+        </section>
+
+        <section class="view active" id="dashboard">
+          <div class="hero-strip">
+            <div>
+              <p class="eyebrow">Next helpful moment</p>
+              <h3 id="nextReminderTitle">Medication at 8:00 AM</h3>
+              <p id="nextReminderDetail">Blood pressure tablet with breakfast.</p>
+            </div>
+            <button class="large-call" type="button" data-call="Maya">
+              <span aria-hidden="true">☎</span>
+              Call Maya
+            </button>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel">
+              <div class="section-heading">
+                <h3>Daily Route</h3>
+                <button class="text-button" id="resetRoutine" type="button">Reset</button>
+              </div>
+              <div class="routine-list" id="routineList"></div>
+            </article>
+
+            <article class="panel">
+              <div class="section-heading">
+                <h3>Family & Friends</h3>
+                <button class="text-button" data-view-shortcut="family" type="button">Open</button>
+              </div>
+              <div class="contact-stack" id="homeContacts"></div>
+            </article>
+
+            <article class="panel">
+              <div class="section-heading">
+                <h3>Memory Warmup</h3>
+                <button class="text-button" data-view-shortcut="games" type="button">Play</button>
+              </div>
+              <div class="mini-game">
+                <p>Remember these three words:</p>
+                <div class="word-row" id="dailyWords"></div>
+                <button class="secondary-action" id="startRecall" type="button">Test my memory</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="family">
+          <div class="page-header">
+            <div>
+              <p class="eyebrow">Connection</p>
+              <h2>Family & Friends</h2>
+            </div>
+            <button class="primary-action" id="messageAll" type="button">
+              <span aria-hidden="true">✉</span>
+              Send update
+            </button>
+          </div>
+          <div class="contact-grid" id="contactGrid"></div>
+        </section>
+
+        <section class="view" id="reminders">
+          <div class="page-header">
+            <div>
+              <p class="eyebrow">Medication and routine</p>
+              <h2>Reminders</h2>
+            </div>
+          </div>
+          <form class="reminder-form" id="reminderForm">
+            <label>
+              Reminder
+              <input id="reminderName" required placeholder="Medicine, walk, water..." />
+            </label>
+            <label>
+              Time
+              <input id="reminderTime" required type="time" />
+            </label>
+            <label>
+              Type
+              <select id="reminderType">
+                <option>Medication</option>
+                <option>Routine</option>
+                <option>Prayer</option>
+                <option>Family</option>
+              </select>
+            </label>
+            <button class="primary-action" type="submit">Add reminder</button>
+          </form>
+          <div class="app-status">
+            <div>
+              <strong>App alerts</strong>
+              <p id="notificationStatus">Use this on localhost or a secure website to enable device notifications.</p>
+            </div>
+            <button class="secondary-action" id="enableAlerts" type="button">Enable alerts</button>
+          </div>
+          <div class="reminder-list" id="reminderList"></div>
+        </section>
+
+        <section class="view" id="games">
+          <div class="page-header">
+            <div>
+              <p class="eyebrow">Gentle brain practice</p>
+              <h2>Games & Memory Test</h2>
+            </div>
+            <div class="score-pill">Score <strong id="scoreValue">0</strong></div>
+          </div>
+
+          <div class="game-grid">
+            <article class="panel game-panel">
+              <h3>Picture Match</h3>
+              <p>Find the matching pairs. Take your time.</p>
+              <div class="memory-board" id="memoryBoard" aria-label="Picture matching game"></div>
+              <button class="secondary-action" id="newGame" type="button">New game</button>
+            </article>
+
+            <article class="panel game-panel">
+              <h3>Recall Test</h3>
+              <p id="recallPrompt">Look at the words, then write the ones you remember.</p>
+              <div class="word-row" id="recallWords"></div>
+              <textarea id="recallAnswer" rows="4" placeholder="Type remembered words here"></textarea>
+              <button class="primary-action" id="checkRecall" type="button">Check answer</button>
+              <p class="result-text" id="recallResult" aria-live="polite"></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="prayer">
+          <div class="page-header">
+            <div>
+              <p class="eyebrow">Faith and quiet time</p>
+              <h2>Prayer Reminders</h2>
+            </div>
+          </div>
+          <div class="prayer-layout">
+            <article class="panel prayer-card">
+              <p class="eyebrow">Next prayer</p>
+              <h3 id="nextPrayer">12:30 PM Midday prayer</h3>
+              <p>Soft alert, calm reading, and a family note can appear here.</p>
+              <button class="primary-action" id="markPrayer" type="button">Mark complete</button>
+            </article>
+            <article class="panel">
+              <h3>Prayer Schedule</h3>
+              <div class="reminder-list" id="prayerList"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

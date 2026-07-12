@@ -1,0 +1,587 @@
+:root {
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --surface-soft: #edf5ef;
+  --ink: #1d2a27;
+  --muted: #64726d;
+  --line: #d9ded8;
+  --green: #2f6f5e;
+  --green-dark: #214f43;
+  --gold: #d79d3b;
+  --coral: #c96856;
+  --blue: #4a6f91;
+  --shadow: 0 18px 44px rgba(37, 51, 47, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.side-panel {
+  background: #21352f;
+  color: #fff;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.brand-block {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.brand-mark {
+  width: 62px;
+  height: 62px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: #f4cf81;
+  color: #20322e;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.brand-block h1,
+.brand-block p,
+.topbar h2,
+.page-header h2,
+.panel h3,
+.hero-strip h3 {
+  margin: 0;
+}
+
+.brand-block h1 {
+  font-size: 1.55rem;
+}
+
+.brand-block p {
+  color: #c6d2ce;
+  line-height: 1.35;
+  margin-top: 5px;
+}
+
+.nav-list {
+  display: grid;
+  gap: 10px;
+}
+
+.nav-item {
+  min-height: 58px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  text-align: left;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.15rem;
+}
+
+.nav-item span {
+  width: 28px;
+  text-align: center;
+  font-size: 1.35rem;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  background: #f4cf81;
+  color: #1f302c;
+}
+
+.care-note {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.care-note p {
+  color: #d5dfdc;
+  line-height: 1.45;
+  margin: 8px 0 0;
+}
+
+main {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topbar,
+.page-header,
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.topbar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.topbar h2,
+.page-header h2 {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+}
+
+.primary-action,
+.secondary-action,
+.large-call,
+.text-button {
+  border-radius: 8px;
+  border: 0;
+  min-height: 48px;
+  padding: 0 18px;
+  font-weight: 800;
+}
+
+.primary-action,
+.large-call {
+  background: var(--green);
+  color: #fff;
+}
+
+.primary-action:hover,
+.large-call:hover {
+  background: var(--green-dark);
+}
+
+.secondary-action {
+  background: #e7ece9;
+  color: var(--ink);
+}
+
+.text-button {
+  background: transparent;
+  color: var(--green);
+  padding: 0 8px;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.hero-strip {
+  min-height: 210px;
+  padding: 28px;
+  border-radius: 8px;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(22, 50, 43, 0.9), rgba(31, 82, 72, 0.48)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='520' viewBox='0 0 1200 520'%3E%3Crect width='1200' height='520' fill='%2384a792'/%3E%3Ccircle cx='956' cy='94' r='84' fill='%23f1cf83'/%3E%3Cpath d='M0 355c120-75 261-99 423-73s286 126 444 102 247-82 333-43v179H0z' fill='%234d765e'/%3E%3Cpath d='M148 286c54-55 129-64 196-18 75 52 153 47 219-10 72-61 169-60 237 1 42 38 94 49 160 31 39-11 75-13 109-5v235H148z' fill='%232f5f55' opacity='.65'/%3E%3Cpath d='M214 222c0-51 41-92 92-92s92 41 92 92-41 92-92 92-92-41-92-92z' fill='%23f5eee0' opacity='.92'/%3E%3Cpath d='M719 217c0-43 35-78 78-78s78 35 78 78-35 78-78 78-78-35-78-78z' fill='%23e8c6a1' opacity='.9'/%3E%3Cpath d='M270 247c30 33 70 33 102 0M765 238c24 24 54 24 78 0' stroke='%2322342f' stroke-width='13' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.hero-strip .eyebrow {
+  color: #f4cf81;
+}
+
+.hero-strip h3 {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+}
+
+.hero-strip p {
+  max-width: 620px;
+  font-size: 1.12rem;
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
+.large-call {
+  min-width: 175px;
+  min-height: 68px;
+  font-size: 1.1rem;
+  background: #f4cf81;
+  color: #1f302c;
+}
+
+.dashboard-grid,
+.game-grid,
+.prayer-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.game-grid,
+.prayer-layout {
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+}
+
+.panel,
+.reminder-form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(37, 51, 47, 0.08);
+}
+
+.panel h3 {
+  font-size: 1.35rem;
+}
+
+.routine-list,
+.contact-stack,
+.reminder-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.routine-item,
+.contact-row,
+.reminder-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px;
+  background: #fbfcfb;
+}
+
+.routine-check {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid var(--green);
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.routine-item.done {
+  background: var(--surface-soft);
+}
+
+.routine-item.done .routine-check {
+  background: var(--green);
+  color: #fff;
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.contact-row h4,
+.reminder-item h4 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.contact-row p,
+.reminder-item p,
+.mini-game p,
+.game-panel p,
+.prayer-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.call-button,
+.complete-button,
+.delete-button {
+  min-width: 52px;
+  min-height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.delete-button {
+  color: var(--coral);
+}
+
+.word-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.word-row span {
+  border-radius: 8px;
+  background: #edf5ef;
+  border: 1px solid #c8d9ce;
+  padding: 10px 14px;
+  font-weight: 800;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  display: grid;
+  gap: 16px;
+  box-shadow: 0 10px 28px rgba(37, 51, 47, 0.08);
+}
+
+.contact-card .avatar {
+  width: 76px;
+  height: 76px;
+  font-size: 1.55rem;
+}
+
+.contact-card h3,
+.contact-card p {
+  margin: 0;
+}
+
+.contact-card p {
+  color: var(--muted);
+}
+
+.reminder-form {
+  display: grid;
+  grid-template-columns: 1.3fr 170px 190px auto;
+  gap: 14px;
+  align-items: end;
+  margin-top: 18px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #bdc8c2;
+  border-radius: 8px;
+  padding: 13px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.score-pill {
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+}
+
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(64px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  border: 2px solid #cbd6d0;
+  border-radius: 8px;
+  background: #e9efeb;
+  font-size: clamp(1.65rem, 5vw, 2.5rem);
+  display: grid;
+  place-items: center;
+}
+
+.memory-card.open,
+.memory-card.matched {
+  background: #fff8e8;
+  border-color: var(--gold);
+}
+
+.result-text {
+  min-height: 28px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.prayer-card {
+  min-height: 260px;
+  background: linear-gradient(135deg, #ffffff 0%, #fff6e2 100%);
+}
+
+.prayer-card h3 {
+  font-size: 2rem;
+  margin: 8px 0 14px;
+}
+
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  max-width: min(420px, calc(100vw - 32px));
+  border-radius: 8px;
+  background: #20322e;
+  color: #fff;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  transform: translateY(130%);
+  transition: transform 180ms ease;
+  z-index: 20;
+}
+
+.toast.show {
+  transform: translateY(0);
+}
+
+@media (max-width: 1080px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    position: static;
+    padding: 18px;
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .nav-item {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+
+  .care-note {
+    display: none;
+  }
+
+  .dashboard-grid,
+  .contact-grid,
+  .game-grid,
+  .prayer-layout,
+  .reminder-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    padding: 16px;
+  }
+
+  .brand-block {
+    grid-template-columns: 52px 1fr;
+  }
+
+  .brand-mark {
+    width: 52px;
+    height: 52px;
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topbar,
+  .page-header,
+  .hero-strip {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-strip {
+    min-height: 360px;
+    justify-content: end;
+  }
+
+  .primary-action,
+  .secondary-action,
+  .large-call {
+    width: 100%;
+  }
+
+  .routine-item,
+  .contact-row,
+  .reminder-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .routine-item button,
+  .contact-row button,
+  .reminder-item button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
